@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Configure CORS
 const allowedOrigins = [
-    'http://localhost3001'
+    'http://localhost3001',
 ];
 app.use(cors({
     origin: allowedOrigins,
@@ -19,13 +19,15 @@ app.use(cors({
 
 // Routes
 
+const mongoURI = process.env.MongoDB_URI;
+
 // Connect to mongoDB
-mongoose.connect(mongoURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => console.log('Connect to database.'))
-    .catch(console.error); 
+// mongoose.connect(mongoURI, {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     })
+//     .then(() => console.log('Connect to database.'))
+//     .catch(console.error); 
 
 // Listen to backend port / start the server
 const port = process.env.PORT || 3001;
